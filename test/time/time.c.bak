@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <time.h>
+
+int main(void)
+{
+	char array[25] = {0};
+	
+	unsigned int hour;
+	
+	time_t timep;
+	time(&timep);
+	while(1)
+	{
+		time(&timep);
+		sprintf(array,"%s",ctime(&timep));
+		printf("array=%s\n",array);
+
+		hour = (array[11]-48)*10+(array[12]-48);
+		
+		printf("hour=%d\n",hour);	
+		sleep(1);
+	}
+	return 0;
+}
